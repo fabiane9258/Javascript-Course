@@ -6,36 +6,36 @@
 <body>
 
   <button onclick="
-    console.log(`Cart Quantity : ${CartQuantity}`);
+    console.log(`Cart Quantity : ${cartQuantity}`);
     ">Show Quantity</button>
 
 
   <button onclick="
 
-  CartQuantity += 1;
-  console.log(`Cart Quantity : ${CartQuantity}`);
+  cartQuantity += 1;
+  console.log(`Cart Quantity : ${cartQuantity}`);
   ">Add to Cart</button>
 
 
   <button onclick="
-    CartQuantity += 2;
-  console.log(`Cart Quantity : ${CartQuantity}`);
+    cartQuantity += 2;
+  console.log(`Cart Quantity : ${cartQuantity}`);
   ">+2</button>
 
 
   <button onclick="
-  CartQuantity += 3;
-  console.log(`Cart Quantity : ${CartQuantity}`);
+  cartQuantity += 3;
+  console.log(`Cart Quantity : ${cartQuantity}`);
   ">+3</button>
 
 
   <button onclick="
-  CartQuantity = 0;
-  console.log('Cart was Reset.'); console.log(`Cart Quantity : ${CartQuantity}`);
+  cartQuantity = 0;
+  console.log('Cart was Reset.'); console.log(`Cart Quantity : ${cartQuantity}`);
   ">Reset Cart</button>
 
 <script>
-  let CartQuantity = 0;
+  let cartQuantity = 0;
 </script>
 </body>
 </html>
