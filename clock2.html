@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analog Clock</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .clock {
+      width: 300px;
+      height: 300px;
+      border: 8px solid #00FFCC;
+      border-radius: 50%;
+      position: relative;
+      background: #000;
+    }
+
+    .hand {
+      position: absolute;
+      width: 50%;
+      height: 2px;
+      background: #00FFCC;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0% 50%;
+      transform: rotate(90deg);
+      transition: transform 0.05s ease-in-out;
+    }
+
+    .hour {
+      height: 4px;
+      width: 35%;
+      background-color: #00FFCC;
+    }
+
+    .minute {
+      height: 3px;
+      width: 45%;
+      background-color: #00FFCC;
+    }
+
+    .second {
+      height: 2px;
+      width: 50%;
+      background-color: red;
+    }
+
+    .center-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #00FFCC;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock">
+    <div class="hand hour" id="hourHand"></div>
+    <div class="hand minute" id="minuteHand"></div>
+    <div class="hand second" id="secondHand"></div>
+    <div class="center-dot"></div>
+  </div>
+
+  <script>
+    function updateAnalogClock() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours();
+
+      const secondDeg = seconds * 6; // 360/60
+      const minuteDeg = minutes * 6 + seconds * 0.1;
+      const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+
+      document.getElementById('secondHand').style.transform = `rotate(${secondDeg}deg)`;
+      document.getElementById('minuteHand').style.transform = `rotate(${minuteDeg}deg)`;
+      document.getElementById('hourHand').style.transform = `rotate(${hourDeg}deg)`;
+    }
+
+    setInterval(updateAnalogClock, 1000);
+    updateAnalogClock(); // initial call
+  </script>
+
+</body>
+</html>
