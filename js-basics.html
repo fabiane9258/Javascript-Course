@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Basics</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f2f2f2;
+      min-height: 40px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Basics Demo</h1>
+  <p>Click the buttons below to see different JavaScript concepts in action:</p>
+
+  <button onclick="showVariables()">Variables</button>
+  <button onclick="showLoop()">Loop</button>
+  <button onclick="showConditional()">Conditional</button>
+  <button onclick="clearOutput()">Clear</button>
+
+  <div id="output"></div>
+
+  <script>
+    // This function shows how variables work
+    function showVariables() {
+      let name = "Alice";
+      const age = 25;
+      let isStudent = true;
+
+      document.getElementById("output").innerHTML = `
+        <strong>Variables:</strong><br>
+        Name: ${name}<br>
+        Age: ${age}<br>
+        Is student? ${isStudent}
+      `;
+    }
+
+    // This function demonstrates a loop
+    function showLoop() {
+      let result = "<strong>Loop (counting 1 to 5):</strong><br>";
+      for (let i = 1; i <= 5; i++) {
+        result += "Number: " + i + "<br>";
+      }
+      document.getElementById("output").innerHTML = result;
+    }
+
+    // This function demonstrates conditionals
+    function showConditional() {
+      const number = Math.floor(Math.random() * 10); // random 0–9
+      let result = "<strong>Conditional:</strong><br>";
+      result += `Random number is: ${number}<br>`;
+
+      if (number < 5) {
+        result += "It's less than 5!";
+      } else {
+        result += "It's 5 or greater!";
+      }
+
+      document.getElementById("output").innerHTML = result;
+    }
+
+    // Clear the output area
+    function clearOutput() {
+      document.getElementById("output").innerHTML = "";
+    }
+  </script>
+
+</body>
+</html>
